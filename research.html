@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Research — Nathan Langley</title>
+<meta name="description" content="Research: livenerf post-launch model drift benchmark, recursive self-improvement dynamics, LLM interpretability with Subtext, Confessor forensic agent audits, Glemton from-scratch language models, and emergent multi-agent behavior." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="in">
+    <a class="brand" href="index.html">Nathan Langley</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html" class="here">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="banner" aria-hidden="true">
+  <img src="img/banner.svg?v=4" alt="" />
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <img class="avatar" src="portrait.jpg" alt="Nathan Langley" />
+    <h3>Nathan Langley</h3>
+    <p class="role">Physics Senior &amp; AI-Safety Researcher</p>
+    <a class="email" href="mailto:nlangley1868@gmail.com">nlangley1868@gmail.com</a>
+    <p class="dept">Department of Physics<br/>UNC Greensboro</p>
+    <ul class="plinks">
+      <li>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        <a href="https://github.com/ninjahawk">GitHub</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14.82 0H1.18A1.17 1.17 0 0 0 0 1.15v13.69A1.17 1.17 0 0 0 1.18 16h13.64A1.17 1.17 0 0 0 16 14.85V1.15A1.17 1.17 0 0 0 14.82 0zM4.74 13.62H2.37V6h2.37v7.62zM3.56 4.96a1.38 1.38 0 1 1 0-2.76 1.38 1.38 0 0 1 0 2.76zm10.06 8.66h-2.37V9.92c0-.88-.02-2.02-1.23-2.02-1.24 0-1.43.96-1.43 1.96v3.76H6.22V6H8.5v1.04h.03a2.5 2.5 0 0 1 2.25-1.24c2.41 0 2.85 1.59 2.85 3.65v4.17z"/></svg>
+        <a href="https://www.linkedin.com/in/nathan-langley-417a67336">LinkedIn</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1.5 6.5v2.25c3.17 0 5.75 2.58 5.75 5.75H9.5A8 8 0 0 0 1.5 6.5zm0-4.5v2.25c5.66 0 10.25 4.59 10.25 10.25H14C14 7.6 8.4 2 1.5 2z"/></svg>
+        <a href="https://ninjahawk.github.io/blog/">Blog</a>
+      </li>
+    </ul>
+  </aside>
+
+  <main>
+    <h1>Research</h1>
+    <p class="lead">
+      My research work — papers, active projects, and the code behind them. Everything is open
+      source and reproducible; each entry links to its full materials.
+    </p>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/livenerf_thumb.png?v=5" alt="livenerf daily score chart for Claude Opus 5.5" /></div>
+      <div class="body">
+        <h2><a href="https://github.com/ninjahawk/livenerf">livenerf: does a frontier model get quietly worse after launch?</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Pre-registered 30-day benchmark series · 1.5K GitHub stars · running since September 2026</p>
+        <p class="desc">A daily, append-only benchmark that tests the "model nerf" claim. A locked panel of 78 GPQA,
+        MMLU-Pro, competition-math and AIME questions, chosen because the model only sometimes gets
+        them right, is rerun every day against a 10-day launch baseline. The design, the detectable
+        effect size and every deviation were published before the results.</p>
+        <a class="btn" href="https://github.com/ninjahawk/livenerf">Code</a>
+        <a class="btn" href="https://discord.gg/JRGCUg2pyX">Discord</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/singleton_thumb.png?v=5" alt="Finite-time separation figure from the singleton-attractor model" /></div>
+      <div class="body">
+        <h2><a href="Singleton Attractor.pdf">Singleton Attractors in Recursive Self-Improvement Dynamics</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Preprint — 22-page paper with proofs and 11 reproducible simulations</p>
+        <p class="desc">A coupled-ODE model of when competitive recursive self-improvement collapses into
+        single-agent dominance. Conditional theorems, calibrated against Epoch AI data.</p>
+        <a class="btn" href="Singleton Attractor.pdf">View PDF</a>
+        <a class="btn" href="https://github.com/ninjahawk/singleton-attractor">Code</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/subtext_thumb.png?v=5" alt="Subtext workspace visualization during the thinking phase" /></div>
+      <div class="body">
+        <h2><a href="https://github.com/ninjahawk/Subtext">Subtext: real-time activation-lens interpretability</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Open-source instrument — 245 GitHub stars</p>
+        <p class="desc">A Jacobian activation lens at nine depths inside a live LLM, decoding hidden
+        states through the vocabulary. Runs in the browser, no GPU required.</p>
+        <a class="btn" href="https://ninjahawk.github.io/Subtext/">Live demo</a>
+        <a class="btn" href="https://github.com/ninjahawk/Subtext">Code</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/confessor_thumb.png?v=5" alt="Confessor AI privacy report with an F grade" /></div>
+      <div class="body">
+        <h2><a href="https://github.com/ninjahawk/Confessor">Confessor: forensic audits of AI coding agents</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Open-source forensic tool · Node, zero dependencies, zero network calls</p>
+        <p class="desc">Reconstructs everything an AI coding agent did from the session logs already on
+        your disk, and flags sensitive file reads followed by network calls. One command, run after
+        the fact.</p>
+        <a class="btn" href="https://ninjahawk.github.io/Confessor/">Sample report</a>
+        <a class="btn" href="https://github.com/ninjahawk/Confessor">Code</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/glemton_thumb.png?v=5" alt="Glemton ton-2 training loss curve" /></div>
+      <div class="body">
+        <h2><a href="https://github.com/ninjahawk/glemton-2">Glemton: a language model from scratch on consumer hardware</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Full-stack training pipeline · single RTX 5070</p>
+        <p class="desc">A ~170M-parameter chat model built end to end on one GPU — tokenizer,
+        pretraining, SFT, DPO, tool use, and a chat UI. The personality is trained into the
+        weights, not prompted.</p>
+        <a class="btn" href="https://github.com/ninjahawk/glemton-2">Code</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/swarm_thumb.png?v=5" alt="Flocking simulation from swarmsim" /></div>
+      <div class="body">
+        <h2><a href="https://github.com/ninjahawk/swarmsim">Emergent behavior in multi-agent systems</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Computational study · undergraduate research, UNC Greensboro</p>
+        <p class="desc">Simulations of flocking, phase transitions, predator–prey dynamics, and
+        self-organized criticality in systems of many simple agents.</p>
+        <a class="btn" href="https://github.com/ninjahawk/swarmsim">Code</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>© 2026 Nathan Langley</footer>
+
+</body>
+</html>

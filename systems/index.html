@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nathan Langley: a private autonomous system</title>
+<meta name="description" content="A private, internal autonomous system built and operated by Nathan Langley. In continuous operation since late October 2026.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16191e; --ink2:#1e2228; --paper:#e8e6e1;
+  --text:#232323; --mute:#55544f; --rule:rgba(35,35,35,.34);
+  --on:#ffffff; --on-mute:rgba(238,236,230,.74); --on-label:#9c9fa6; --on-rule:rgba(232,230,225,.26);
+  --accent:#d2693f; --accent-paper:#a84e28;
+  --g:64px;
+  --sans:"Manrope",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --spring:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--text);font-family:var(--sans);font-weight:400;font-size:18px;line-height:23px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+h1,h2,h3{font-weight:400}
+.d1{font-size:56px;line-height:58px;letter-spacing:-1.68px}
+.d2{font-size:36px;line-height:43px;letter-spacing:-1.44px}
+.label{font-size:12px;line-height:12px;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+.cap{font-family:var(--mono);font-size:11px;line-height:16px;letter-spacing:.01em}
+.sec{padding:112px var(--g);position:relative}
+.dark{background:var(--ink2);color:var(--on)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;height:74px;padding:0 var(--g);display:flex;align-items:center;color:var(--on);border-bottom:1px dashed transparent;transition:background-color .3s,color .3s,border-color .3s}
+.js .nav{transform:translateY(-100%)}
+.js.ready .nav{transform:none;transition:transform .7s cubic-bezier(.68,.03,.34,.95) .1s,background-color .3s,color .3s,border-color .3s}
+.nav.paper{background:var(--paper);color:var(--text);border-bottom-color:var(--rule)}
+.nav.inkbar{background:var(--ink2);border-bottom-color:var(--on-rule)}
+.nav.inhero{background:var(--ink)}
+.name{font-size:20px;letter-spacing:-.5px}
+
+.hero{background:var(--ink);color:var(--on);padding:118px var(--g) 64px;min-height:800px;display:flex;flex-direction:column;justify-content:space-between}
+.fig1 svg{display:block;width:100%;height:auto;overflow:visible}
+.fig1 circle{fill:#e8e6e1}
+.fig1 circle.a{fill:var(--accent)}
+.js .fig1 circle{opacity:0;transform:translate(var(--x),var(--y))}
+.js .fig1.in circle{opacity:1;transform:none;transition:opacity .5s linear,transform 1.7s var(--spring);transition-delay:var(--d,0s)}
+.figcap{color:var(--on-label);margin-top:14px}
+.hero-foot{display:grid;grid-template-columns:minmax(0,820px) minmax(0,360px);justify-content:space-between;align-items:end;gap:40px;margin-top:40px}
+.hero-foot p{color:var(--on-mute);font-size:16px;line-height:22px}
+
+.js [data-r]{opacity:0;transform:translateY(10px)}
+.js [data-r].in{opacity:1;transform:none;transition:opacity .4s linear,transform .5s var(--spring);transition-delay:calc(.075s + var(--i,0)*.08s)}
+.static [data-r],.static .nav,.static .fig1 circle{opacity:1!important;transform:none!important;transition:none!important}
+
+.about .label{grid-column:1/-1;color:var(--mute);margin-bottom:28px}
+.about h2{grid-column:1/span 10;max-width:1010px}
+
+.ev-head{margin-bottom:72px}
+.ev-head .label{grid-column:1/-1;color:var(--on-label);margin-bottom:20px}
+.ev-head h2{grid-column:1/span 7}
+.ev-head p{grid-column:9/span 4;color:var(--on-mute);align-self:end}
+.ev{border-top:1px dashed var(--on-rule);padding:40px 0 44px;align-items:start}
+.ev:last-child{border-bottom:1px dashed var(--on-rule)}
+.ev .n{grid-column:1/span 1;color:var(--on-label);padding-top:9px}
+.ev h3{grid-column:2/span 8;font-size:24px;line-height:29px;letter-spacing:-.36px;max-width:640px}
+.ev .art{grid-column:11/span 2;color:var(--on-label);padding-top:4px}
+.ev .art b{display:block;font-weight:400;color:var(--on);margin-top:2px}
+.ev .art a{border-bottom:1px solid var(--on-rule);transition:border-color .2s,color .2s}
+.ev .art a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.ev.lead{padding:48px 0 56px}
+.ev.lead h3{font-size:36px;line-height:43px;letter-spacing:-1.44px}
+
+.scope{border-top:1px dashed var(--rule);padding:0 0 0 var(--g);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+.scope .l{padding:96px 64px 96px 0}
+.scope .l h2{max-width:640px}
+.scope .rr{border-left:1px dashed var(--rule);display:grid;grid-template-rows:auto 1fr}
+.scope .rr .label{padding:16px;color:var(--mute);border-bottom:1px dashed var(--rule)}
+.scope .cell{padding:28px 16px 28px;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start}
+.scope .cell .label{padding:6px 0 0;border:0}
+.btn{display:inline-flex;align-items:center;height:38px;padding:0 14px;border-radius:4px;background:var(--text);color:#fff;font-size:14px;font-weight:600;line-height:18px;margin-top:14px;transition:background-color .2s}
+.btn:hover{background:var(--accent-paper)}
+
+footer{background:var(--ink2);color:var(--on);display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+footer>div{padding:64px;border-left:1px dashed var(--on-rule);min-height:260px}
+footer>div:first-child{border-left:0}
+footer .label{color:var(--on-label);margin-bottom:24px;font-size:12px}
+footer a,footer p{display:block;font-size:14px;line-height:18px;color:#e1e1e1;margin-bottom:20px}
+footer a:hover{color:#fff}
+footer p{color:var(--on-mute);line-height:20px;max-width:340px}
+
+@media (max-width:1100px){
+  .ev h3{grid-column:2/span 7}
+  .ev .art{grid-column:9/span 4}
+  footer>div{padding:48px 32px}
+}
+@media (max-width:760px){
+  :root{--g:20px}
+  body{font-size:17px;line-height:26px}
+  .d1{font-size:38px;line-height:41px;letter-spacing:-1.15px}
+  .d2,.ev.lead h3{font-size:26px;line-height:30px;letter-spacing:-1.04px}
+  .sec{padding:80px var(--g)}
+  .grid{display:block}
+  .nav{height:62px}
+  .name{font-size:18px}
+  .hero{padding:86px var(--g) 48px;min-height:0}
+  .hero-foot{display:block;margin-top:28px}
+  .hero-foot p{margin-top:20px;font-size:16px;line-height:24px}
+  .about .label{margin-bottom:20px}
+  .ev-head{margin-bottom:48px}
+  .ev-head p{margin-top:20px}
+  .ev,.ev.lead{padding:28px 0 36px}
+  .ev .n{padding:0;margin-bottom:14px}
+  .ev .art{margin-top:20px}
+  .scope{display:block;padding:0}
+  .scope .l{padding:72px var(--g) 64px}
+  .scope .rr{border-left:0;border-top:1px dashed var(--rule)}
+  .scope .rr .label{padding:16px var(--g)}
+  .scope .cell{padding:24px var(--g);grid-template-columns:96px 1fr}
+  .scope .cell .label{padding:7px 0 0}
+  footer{display:block}
+  footer>div{padding:32px var(--g);border-left:0;min-height:0;border-top:1px dashed var(--on-rule)}
+  footer>div:first-child{border-top:0;padding-top:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js [data-r],.js .nav,.js .fig1 circle{opacity:1!important;transform:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="name" href="#top">Nathan Langley</a>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <figure class="fig1" id="fig1">
+    <svg id="fig1svg" aria-hidden="true"></svg>
+    <figcaption class="cap figcap">Fig. 1</figcaption>
+  </figure>
+  <div class="hero-foot">
+    <h1 class="d1" data-r>A private autonomous system, in continuous operation since late October 2026.</h1>
+    <p data-r style="--i:2">Built and operated by Nathan Langley, for internal use.</p>
+  </div>
+</section>
+
+<section class="sec about" id="about">
+  <div class="grid">
+    <div class="label" data-r>About</div>
+    <h2 class="d2" data-r style="--i:1">This is a private, internal system, built and operated by one person. It works autonomously and is judged on results alone: hundreds so far, each with an artifact that can be checked.</h2>
+  </div>
+</section>
+
+<section class="sec dark" id="evidence">
+  <div class="grid ev-head">
+    <div class="label" data-r>Evidence</div>
+    <h2 class="d1" data-r style="--i:1">Public evidence</h2>
+    <p data-r style="--i:2">Three public items. Each can be opened from this page.</p>
+  </div>
+
+  <article class="grid ev lead" data-r>
+    <div class="n label">01</div>
+    <h3>An iOS game, live on the App Store.</h3>
+    <div class="art cap">Artifact<b><a href="https://apps.apple.com/us/app/id6788521690">App Store listing</a></b></div>
+  </article>
+
+  <article class="grid ev" data-r>
+    <div class="n label">02</div>
+    <h3>A public benchmark of language models, updated daily.</h3>
+    <div class="art cap">Artifact<b><a href="https://github.com/ninjahawk/livenerf">Public repository</a></b></div>
+  </article>
+
+  <article class="grid ev" data-r>
+    <div class="n label">03</div>
+    <h3>AI-safety research, submitted to an Apart Research sprint.</h3>
+    <div class="art cap">Artifact<b><a href="https://github.com/ninjahawk/earned-or-claimed">Public repository</a></b></div>
+  </article>
+
+</section>
+
+<section class="scope" id="scope">
+  <div class="l">
+    <h2 class="d2" data-r>This is internal software. It is not a product and it is not for sale.</h2>
+  </div>
+  <div class="rr">
+    <div class="label">Record</div>
+    <div class="cell"><div class="label">Operator</div><div data-r><p>Operated by Nathan Langley.</p><a class="btn" href="https://nathanlangley.dev">nathanlangley.dev&nbsp;&rarr;</a></div></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div><div class="label">On this page</div><a href="#about">About</a><a href="#evidence">Evidence</a><a href="#scope">Scope</a></div>
+  <div><div class="label">Operator</div><a href="https://nathanlangley.dev">Nathan Langley</a></div>
+  <div><div class="label">Note</div><p>&copy; 2026 Nathan Langley. A private system for internal use. Nothing here is an offer of a product or service.</p></div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, isStatic=/[?&]static=1/.test(location.search);
+  root.classList.add('js'); if(isStatic) root.classList.add('static');
+  var NS='http://www.w3.org/2000/svg';
+  function seeded(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+  function fig1(){
+    var svg=document.getElementById('fig1svg'), wide=window.innerWidth>760;
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    var G=wide?{along:72,across:20,step:18.4,amp:58}:{along:24,across:20,step:17.5,amp:40};
+    var r=seeded(7), frag=document.createDocumentFragment();
+    for(var i=0;i<G.along;i++){
+      var t=i/(G.along-1), e=Math.pow(Math.max(0,(.74-t)/.74),1.7);
+      for(var j=0;j<G.across;j++){
+        var a=r(),b=r(),c=r(),d=r(),k=r(),m=r(),n=r();
+        if(k<e*.5)continue;
+        var f=(i+.5)*G.step+(a-.5)*2*G.amp*e, x=(j+.5)*G.step+(b-.5)*2*G.amp*e;
+        f=Math.min(G.along*G.step-3,Math.max(3,f)); x=Math.min(G.across*G.step-3,Math.max(3,x));
+        var o=document.createElementNS(NS,'circle');
+        o.setAttribute('cx',(wide?f:x).toFixed(1)); o.setAttribute('cy',(wide?x:f).toFixed(1));
+        o.setAttribute('r',(e>0?.8+c*1.3:1.35).toFixed(2));
+        o.setAttribute('fill-opacity',(e>0?.3+d*.55*(1-e*.4):.8).toFixed(2));
+        if(m<.045){o.setAttribute('class','a');o.setAttribute('fill-opacity','1')}
+        o.style.setProperty('--x',((n-.5)*90).toFixed(0)+'px');
+        o.style.setProperty('--y',((a-.5)*90).toFixed(0)+'px');
+        o.style.setProperty('--d',(t*.9+c*.25).toFixed(2)+'s');
+        frag.appendChild(o);
+      }
+    }
+    svg.appendChild(frag);
+    var F=(G.along*G.step).toFixed(0), X=(G.across*G.step).toFixed(0);
+    svg.setAttribute('viewBox',wide?'0 0 '+F+' '+X:'0 0 '+X+' '+F);
+  }
+  fig1();
+  var wasWide=window.innerWidth>760;
+  window.addEventListener('resize',function(){var w=window.innerWidth>760;if(w!==wasWide){wasWide=w;fig1()}});
+
+  var items=[].slice.call(document.querySelectorAll('[data-r],.fig1'));
+  if(isStatic||!('IntersectionObserver' in window)){items.forEach(function(e){e.classList.add('in')})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    items.forEach(function(e){io.observe(e)});
+  }
+  requestAnimationFrame(function(){root.classList.add('ready')});
+
+  var nav=document.getElementById('nav'),hero=document.querySelector('.hero'),ev=document.getElementById('evidence'),ft=document.querySelector('footer');
+  function onScroll(){
+    var y=window.scrollY+nav.offsetHeight, inHero=y<hero.offsetTop+hero.offsetHeight;
+    var inEv=y>ev.offsetTop&&y<ev.offsetTop+ev.offsetHeight, inFt=y>ft.offsetTop;
+    nav.classList.toggle('paper',!inHero&&!inEv&&!inFt);
+    nav.classList.toggle('inkbar',(inEv||inFt)||(inHero&&window.scrollY>40));
+    nav.classList.toggle('inhero',inHero);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>

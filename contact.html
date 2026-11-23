@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Nathan Langley</title>
+<meta name="description" content="Contact Nathan Langley." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="in">
+    <a class="brand" href="index.html">Nathan Langley</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="here">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="banner" aria-hidden="true">
+  <img src="img/banner.svg?v=4" alt="" />
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <img class="avatar" src="portrait.jpg" alt="Nathan Langley" />
+    <h3>Nathan Langley</h3>
+    <p class="role">Physics Senior &amp; AI-Safety Researcher</p>
+    <a class="email" href="mailto:nlangley1868@gmail.com">nlangley1868@gmail.com</a>
+    <p class="dept">Department of Physics<br/>UNC Greensboro</p>
+    <ul class="plinks">
+      <li>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        <a href="https://github.com/ninjahawk">GitHub</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14.82 0H1.18A1.17 1.17 0 0 0 0 1.15v13.69A1.17 1.17 0 0 0 1.18 16h13.64A1.17 1.17 0 0 0 16 14.85V1.15A1.17 1.17 0 0 0 14.82 0zM4.74 13.62H2.37V6h2.37v7.62zM3.56 4.96a1.38 1.38 0 1 1 0-2.76 1.38 1.38 0 0 1 0 2.76zm10.06 8.66h-2.37V9.92c0-.88-.02-2.02-1.23-2.02-1.24 0-1.43.96-1.43 1.96v3.76H6.22V6H8.5v1.04h.03a2.5 2.5 0 0 1 2.25-1.24c2.41 0 2.85 1.59 2.85 3.65v4.17z"/></svg>
+        <a href="https://www.linkedin.com/in/nathan-langley-417a67336">LinkedIn</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1.5 6.5v2.25c3.17 0 5.75 2.58 5.75 5.75H9.5A8 8 0 0 0 1.5 6.5zm0-4.5v2.25c5.66 0 10.25 4.59 10.25 10.25H14C14 7.6 8.4 2 1.5 2z"/></svg>
+        <a href="https://ninjahawk.github.io/blog/">Blog</a>
+      </li>
+    </ul>
+  </aside>
+
+  <main>
+    <h1>Contact</h1>
+    <p class="lead">
+      For roles, fellowships, collaboration, or questions about the research — the fastest way to
+      reach me is email.
+    </p>
+    <p>
+      <b>Email:</b> <a href="mailto:nlangley1868@gmail.com">nlangley1868@gmail.com</a><br/>
+      <b>GitHub:</b> <a href="https://github.com/ninjahawk">github.com/ninjahawk</a><br/>
+      <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/nathan-langley-417a67336">nathan-langley</a>
+    </p>
+    <p>
+      I'm based in Greensboro, NC, graduating December 2026, and willing to relocate. I'm open to
+      AI-safety research-engineering roles, fellowships, and research collaboration.
+    </p>
+
+    <h2 style="font-size:1.2rem; font-weight:700; margin-top:34px;">Send me a note</h2>
+    <form class="noteform" id="noteform" action="https://formspree.io/f/FORM_ID" method="POST">
+      <label for="nf-name">Name</label>
+      <input id="nf-name" name="name" type="text" required />
+      <label for="nf-email">Your email</label>
+      <input id="nf-email" name="_replyto" type="email" required />
+      <label for="nf-msg">Message</label>
+      <textarea id="nf-msg" name="message" required></textarea>
+      <button type="submit">Send note</button>
+      <p class="status" id="nf-status"></p>
+    </form>
+    <script>
+      (function () {
+        var form = document.getElementById('noteform');
+        form.addEventListener('submit', function (e) {
+          if (form.action.indexOf('FORM_ID') !== -1) {
+            e.preventDefault();
+            var n = document.getElementById('nf-name').value;
+            var em = document.getElementById('nf-email').value;
+            var m = document.getElementById('nf-msg').value;
+            location.href = 'mailto:nlangley1868@gmail.com'
+              + '?subject=' + encodeURIComponent('Note from ' + n)
+              + '&body=' + encodeURIComponent(m + '\n\n— ' + n + ' (' + em + ')');
+            document.getElementById('nf-status').textContent = 'Opening your email app…';
+          }
+        });
+      })();
+    </script>
+  </main>
+</div>
+
+<footer>© 2026 Nathan Langley</footer>
+
+</body>
+</html>
