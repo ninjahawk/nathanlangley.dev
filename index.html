@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nathan Langley</title>
-<meta name="description" content="Physics senior at UNC Greensboro working in AI safety: LLM interpretability, autonomous multi-agent systems, and recursive self-improvement dynamics." />
+<meta name="description" content="Physics senior at UNC Greensboro working in AI safety: model evaluation (livenerf), LLM interpretability, autonomous multi-agent systems, and recursive self-improvement dynamics." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
       </li>
       <li>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1.5 6.5v2.25c3.17 0 5.75 2.58 5.75 5.75H9.5A8 8 0 0 0 1.5 6.5zm0-4.5v2.25c5.66 0 10.25 4.59 10.25 10.25H14C14 7.6 8.4 2 1.5 2z"/></svg>
-        <a href="https://ninjahawk.github.io/blog/">Blog</a>
+        <a href="https://blog.nathanlangley.dev/">Blog</a>
       </li>
     </ul>
   </aside>
@@ -59,7 +59,10 @@
     </p>
     <p>
       I am a <b>physics senior at UNC Greensboro</b> (B.S. expected December 2026) doing independent
-      research in AI safety. My main line of work is <b>LLM interpretability</b>: I built
+      research in AI safety. I run <a href="https://github.com/ninjahawk/livenerf">livenerf</a>, a pre-registered benchmark that tests Claude Opus 5.5 against a locked panel of 78 questions every day to measure whether a frontier model gets worse after launch. It has run every day since September 24, 2026, with no change detected across its first five 10-day windows. The project has 1,900+ GitHub stars and a public Discord with over 270 members discussing the daily results. In November 2026, I entered the <a href="research.html">Apart Research AI x Epistemics sprint</a> independently, studying the oversight of AI agents.
+    </p>
+    <p>
+      I also work on <b>LLM interpretability</b>: I built
       <a href="https://github.com/ninjahawk/Subtext">Subtext</a>, an open-source instrument that applies an
       activation lens inside a language model during live conversation, decoding what the model is disposed
       to say several tokens before it says it.
@@ -67,22 +70,15 @@
     <p>
       I also study <b>autonomous multi-agent systems</b>. My project
       <a href="https://github.com/ninjahawk/hollow-agentOS">hollow-agentOS</a> runs three LLM agents that
-      select their own goals from environmental stress signals — no instructions — and documents everything
-      in an append-only autonomy log, including the failure modes: agents falsely claiming task completion
-      (which motivated a five-layer validation gate) and an agent autonomously targeting its own execution
-      engine for modification.
+      select their own goals from environmental stress signals — no instructions — behind a validation gate that catches agents
+      falsely claiming task completion.
     </p>
     <p>
       On the theory side, I work on <b>recursive self-improvement dynamics</b>. My preprint models
       competing self-improving agents as a coupled ODE system, proves conditional divergence theorems, and
-      calibrates them against frontier-AI data — reporting honestly that the data does not yet support the
-      critical assumption. This summer I am also doing undergraduate research on <b>self-organized
+      calibrates them against frontier-AI data; the data does not yet support the
+      critical assumption. In summer 2026 I also did undergraduate research on <b>self-organized
       criticality</b> in the UNCG physics department.
-    </p>
-    <p>
-      I also run <a href="https://github.com/ninjahawk/livenerf">livenerf</a>, a pre-registered benchmark
-      series that reruns a locked question panel against a frontier model every day to test whether it gets
-      quietly worse after launch.
     </p>
     <p>
       More detail lives in the <a href="research.html">research</a> and

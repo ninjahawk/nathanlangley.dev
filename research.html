@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Research — Nathan Langley</title>
-<meta name="description" content="Research: livenerf post-launch model drift benchmark, recursive self-improvement dynamics, LLM interpretability with Subtext, Confessor forensic agent audits, Glemton from-scratch language models, and emergent multi-agent behavior." />
+<meta name="description" content="Research: livenerf post-launch model drift benchmark, Hold 'Em or Fold 'Em coding-agent confidence study, recursive self-improvement dynamics, LLM interpretability with Subtext, Confessor forensic agent audits, and emergent multi-agent behavior." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
       </li>
       <li>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1.5 6.5v2.25c3.17 0 5.75 2.58 5.75 5.75H9.5A8 8 0 0 0 1.5 6.5zm0-4.5v2.25c5.66 0 10.25 4.59 10.25 10.25H14C14 7.6 8.4 2 1.5 2z"/></svg>
-        <a href="https://ninjahawk.github.io/blog/">Blog</a>
+        <a href="https://blog.nathanlangley.dev/">Blog</a>
       </li>
     </ul>
   </aside>
@@ -54,8 +54,7 @@
   <main>
     <h1>Research</h1>
     <p class="lead">
-      My research work — papers, active projects, and the code behind them. Everything is open
-      source and reproducible; each entry links to its full materials.
+      Papers, active projects, and the code behind them; each entry links to its full materials.
     </p>
 
     <div class="entry">
@@ -63,13 +62,29 @@
       <div class="body">
         <h2><a href="https://github.com/ninjahawk/livenerf">livenerf: does a frontier model get quietly worse after launch?</a></h2>
         <p class="authors"><b>Nathan Langley</b></p>
-        <p class="venue">Pre-registered 30-day benchmark series · 1.5K GitHub stars · running since September 2026</p>
+        <p class="venue">Pre-registered daily benchmark series · 1,900+ GitHub stars · run every day since September 24, 2026, none missed</p>
         <p class="desc">A daily, append-only benchmark that tests the "model nerf" claim. A locked panel of 78 GPQA,
         MMLU-Pro, competition-math and AIME questions, chosen because the model only sometimes gets
-        them right, is rerun every day against a 10-day launch baseline. The design, the detectable
-        effect size and every deviation were published before the results.</p>
+        them right, is rerun every day against a 10-day launch baseline. The design and the detectable
+        effect size were published before the results.</p>
         <a class="btn" href="https://github.com/ninjahawk/livenerf">Code</a>
         <a class="btn" href="https://discord.gg/JRGCUg2pyX">Discord</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="thumb"><img src="img/holdfold_thumb.png?v=5" alt="Hold 'Em or Fold 'Em AUROC of initial confidence for Haiku 5.5 and Sonnet 5.5" /></div>
+      <div class="body">
+        <h2><a href="https://github.com/ninjahawk/hold-or-fold">Hold 'Em or Fold 'Em: does a coding agent's confidence tell an overseer which claims survive a challenge?</a></h2>
+        <p class="authors"><b>Nathan Langley</b></p>
+        <p class="venue">Apart Research AI x Epistemics sprint, November 2026 · solo entry, Track 1</p>
+        <p class="desc">This study tested Claude Haiku 5.5 and Sonnet 5.5 on 300 coding problems each, drawn from MBPP+,
+        HumanEval+, and designed trap variants. Agents reported their confidence before receiving three increasingly
+        forceful rebuttals, with code executed after every turn. Confidence predicted whether correct answers survived
+        challenges (AUROC 0.78 for Haiku, 0.81 for Sonnet), but did not detectably predict whether incorrect answers were repaired.</p>
+        <a class="btn" href="https://github.com/ninjahawk/hold-or-fold/blob/main/report/REPORT-final.pdf">Paper</a>
+        <a class="btn" href="https://github.com/ninjahawk/hold-or-fold">Code</a>
+        <a class="btn" href="https://apartresearch.com/sprints/projects/hold-em-or-fold-em-does-a-coding-agents-confidence-tell-an-overseer-which-claims-survive-a-challenge-q9ox14r69w">Apart page</a>
       </div>
     </div>
 
@@ -91,9 +106,9 @@
       <div class="body">
         <h2><a href="https://github.com/ninjahawk/Subtext">Subtext: real-time activation-lens interpretability</a></h2>
         <p class="authors"><b>Nathan Langley</b></p>
-        <p class="venue">Open-source instrument — 245 GitHub stars</p>
+        <p class="venue">Open-source instrument · 250 GitHub stars</p>
         <p class="desc">A Jacobian activation lens at nine depths inside a live LLM, decoding hidden
-        states through the vocabulary. Runs in the browser, no GPU required.</p>
+        states through the vocabulary.</p>
         <a class="btn" href="https://ninjahawk.github.io/Subtext/">Live demo</a>
         <a class="btn" href="https://github.com/ninjahawk/Subtext">Code</a>
       </div>
@@ -110,19 +125,6 @@
         the fact.</p>
         <a class="btn" href="https://ninjahawk.github.io/Confessor/">Sample report</a>
         <a class="btn" href="https://github.com/ninjahawk/Confessor">Code</a>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="thumb"><img src="img/glemton_thumb.png?v=5" alt="Glemton ton-2 training loss curve" /></div>
-      <div class="body">
-        <h2><a href="https://github.com/ninjahawk/glemton-2">Glemton: a language model from scratch on consumer hardware</a></h2>
-        <p class="authors"><b>Nathan Langley</b></p>
-        <p class="venue">Full-stack training pipeline · single RTX 5070</p>
-        <p class="desc">A ~170M-parameter chat model built end to end on one GPU — tokenizer,
-        pretraining, SFT, DPO, tool use, and a chat UI. The personality is trained into the
-        weights, not prompted.</p>
-        <a class="btn" href="https://github.com/ninjahawk/glemton-2">Code</a>
       </div>
     </div>
 

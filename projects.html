@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Nathan Langley</title>
-<meta name="description" content="Projects: Orb (proactive AI assistant on the App Store), hollow-agentOS, Redcoder, XViral, bongochat, intratexxxt, VirtualPC, and more." />
+<meta name="description" content="Projects: Orb (proactive AI assistant on the App Store), hollow-agentOS, Redcoder, bongochat, and S&amp;Poké 500." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
       </li>
       <li>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1.5 6.5v2.25c3.17 0 5.75 2.58 5.75 5.75H9.5A8 8 0 0 0 1.5 6.5zm0-4.5v2.25c5.66 0 10.25 4.59 10.25 10.25H14C14 7.6 8.4 2 1.5 2z"/></svg>
-        <a href="https://ninjahawk.github.io/blog/">Blog</a>
+        <a href="https://blog.nathanlangley.dev/">Blog</a>
       </li>
     </ul>
   </aside>
@@ -54,19 +54,18 @@
   <main>
     <h1>Projects</h1>
     <p class="lead">
-      Software I've designed, built, and shipped — all open source, all running on consumer
-      hardware. Further details are available by clicking on each project.
+      Software I've designed, built, and shipped.
     </p>
 
     <div class="entry">
       <div class="thumb"><img src="img/orb_thumb.jpg?v=5" alt="Orb app icon" /></div>
       <div class="body">
-        <h2><a href="https://apps.apple.com/us/app/orb-ai/id6776376035">Orb — Proactive AI</a></h2>
-        <p class="venue">Live on the App Store · Swift/Capacitor iOS app · Python/FastAPI server (open source, MIT)</p>
+        <h2><a href="https://apps.apple.com/us/app/orb-proactive-ai/id6776376035">Orb — Proactive AI</a></h2>
+        <p class="venue">Live on the App Store · iOS app · Python/FastAPI server (open source, MIT)</p>
         <p class="desc">A voice-first AI assistant that talks first: it briefs you, watches what you
         ask it to, and reaches out when something matters. Pairs with an open-source server on your
-        own computer — no account, no cloud; the privacy label reads "Data Not Collected."</p>
-        <a class="btn" href="https://apps.apple.com/us/app/orb-ai/id6776376035">App Store</a>
+        own computer.</p>
+        <a class="btn" href="https://apps.apple.com/us/app/orb-proactive-ai/id6776376035">App Store</a>
         <a class="btn" href="https://github.com/getorb/Orb-Backend">Server code</a>
         <a class="btn" href="https://getorb.github.io/">Site</a>
       </div>
@@ -76,7 +75,7 @@
       <div class="thumb"><img src="img/hollow_thumb.png?v=5" alt="hollow-agentOS terminal demo" /></div>
       <div class="body">
         <h2><a href="https://github.com/ninjahawk/hollow-agentOS">hollow-agentOS</a></h2>
-        <p class="venue">309 stars · 52 releases · Python, FastAPI, Ollama, Docker</p>
+        <p class="venue">311 stars · 52 releases · Python, FastAPI, Ollama, Docker</p>
         <p class="desc">A self-modifying multi-agent system: three LLM agents select their own goals
         and write new Python tools at runtime, behind a validation gate that catches agents falsely
         claiming task completion.</p>
@@ -97,19 +96,6 @@
     </div>
 
     <div class="entry">
-      <div class="thumb"><img src="img/xviral_thumb.png?v=5" alt="XViral — X ranking pipeline engagement-head weights" /></div>
-      <div class="body">
-        <h2><a href="https://github.com/ninjahawk/XViral">XViral</a></h2>
-        <p class="venue">Python · built on X's official x-algorithm source release</p>
-        <p class="desc">A local replica of X's For You ranking pipeline, rebuilt from the source X
-        published in 2026 and turned into a draft-post scorer. Every number X withheld is a labeled
-        free parameter, fitted against real posts.</p>
-        <a class="btn" href="https://github.com/ninjahawk/XViral">Code</a>
-        <a class="btn" href="https://github.com/ninjahawk/XViral/blob/main/FINDINGS.md">Findings</a>
-      </div>
-    </div>
-
-    <div class="entry">
       <div class="thumb"><img src="img/bongochat_thumb.png?v=5" alt="bongochat chance-normalized benchmark chart" /></div>
       <div class="body">
         <h2><a href="https://github.com/ninjahawk/bongochat">bongochat</a></h2>
@@ -123,30 +109,6 @@
     </div>
 
     <div class="entry">
-      <div class="thumb"><img src="img/intratexxxt_thumb.png?v=5" alt="intratexxxt staircase of SHA-256 work per stage" /></div>
-      <div class="body">
-        <h2><a href="https://github.com/ninjahawk/intratexxxt">intratexxxt</a></h2>
-        <p class="venue">Python · open challenge since October 2026</p>
-        <p class="desc">An unbounded recursive cipher. Each stage is a real proof-of-work problem whose solution is
-        the only way to generate the next stage, so there is no fixed set of layers on disk to
-        inspect. The canonical chain is checked on every push by two independent implementations.</p>
-        <a class="btn" href="https://github.com/ninjahawk/intratexxxt/blob/main/challenge.json">Challenge</a>
-        <a class="btn" href="https://github.com/ninjahawk/intratexxxt">Code</a>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="thumb"><img src="img/virtualpc_thumb.jpg?v=5" alt="VirtualPC — NAND to CPU 8-bit virtual machine" /></div>
-      <div class="body">
-        <h2><a href="https://github.com/ninjahawk/VirtualPC">VirtualPC</a></h2>
-        <p class="venue">24 stars · Python</p>
-        <p class="desc">An 8-bit computer built up from a single NAND gate, virtual CPU included —
-        computer architecture from first principles.</p>
-        <a class="btn" href="https://github.com/ninjahawk/VirtualPC">Code</a>
-      </div>
-    </div>
-
-    <div class="entry">
       <div class="thumb"><img src="img/poke500_thumb.svg?v=5" alt="S&amp;Poké 500 index chart" /></div>
       <div class="body">
         <h2><a href="https://poke500.com">S&amp;Poké 500</a></h2>
@@ -155,16 +117,6 @@
         the S&amp;P 500 of the card market, rebuilt daily from TCGplayer prices.</p>
         <a class="btn" href="https://poke500.com">Live Site</a>
         <a class="btn" href="https://github.com/ninjahawk/s-and-poke-500">Code</a>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="thumb"><img src="img/unit_thumb.png?v=5" alt="Unit Converter app icon" /></div>
-      <div class="body">
-        <h2><a href="https://play.google.com/store/apps/details?id=com.sldstudio.unitconverter">Unit Converter</a></h2>
-        <p class="venue">Android · Kotlin</p>
-        <p class="desc">A unit conversion app, published independently on the Google Play Store.</p>
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.sldstudio.unitconverter">Google Play</a>
       </div>
     </div>
   </main>
